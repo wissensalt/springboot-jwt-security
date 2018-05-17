@@ -1,11 +1,12 @@
 server:
   port: 8080
-  context-path: /basic
+  contextPath: /jwt
+  servlet-path: /*
 
 spring:
   datasource:
     driver-class-name : com.mysql.jdbc.Driver
-    url : jdbc:mysql://localhost:3306/test_basic_security
+    url : jdbc:mysql://localhost:3306/test_jwt_security
     username : root
     password : P@ssw0rd
   jpa:
@@ -15,3 +16,10 @@ spring:
             dialect : org.hibernate.dialect.MySQL5Dialect
             # Hibernate ddl auto (create, create-drop, validate, update)
             ddl-auto : create-drop
+
+
+jwt:
+  secret: my-secret-app
+  header: x-auth-token
+# expiration in seconds
+  expiration: 1800
